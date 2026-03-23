@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+@keyframes panBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+.bg-pan {
+  background-size: 200% 200%;
+  animation: panBg 15s ease infinite;
+}
+.card-3d {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
+  box-shadow: -10px 20px 30px rgba(0,0,0,0.1);
+}
+[dir="rtl"] .card-3d:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-5px);
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Global Fonts based on Language Direction */
+body, [dir="ltr"] {
+  font-family: 'Roboto', sans-serif;
+}
+
+[dir="rtl"] {
+  font-family: 'Cairo', sans-serif;
+}
