@@ -65,7 +65,7 @@ export default function HeroSection({ t, lang, scrollTo }) {
               {/* Frame */}
               <div className="relative overflow-hidden rounded-[40px] border border-blue-500/20 p-2 bg-white/5 backdrop-blur-sm transition-transform duration-700 group-hover:scale-[1.02]">
                 <img
-                  src="/Hero-img.png"
+                  src="/heroo.jpg"
                   alt="Industrial Equipment"
                   className="w-full h-auto object-cover rounded-[32px] opacity-90 group-hover:opacity-100 transition-opacity duration-700"
                 />

@@ -8,7 +8,7 @@ export default function Navbar({ navLinks, handleScrollTo, toggleLang, t }) {
         <button
           key={link.name}
           onClick={() => handleScrollTo(link.id, link.path)}
-          className="text-xs font-bold tracking-[0.12em] uppercase transition-all duration-300 text-blue-100/80 hover:text-white relative group"
+          className="text-sm font-bold tracking-[0.12em] uppercase transition-all duration-300 text-blue-100/80 hover:text-white relative group"
         >
           {link.name}
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#1A1AFA] group-hover:w-full transition-all duration-300" />
