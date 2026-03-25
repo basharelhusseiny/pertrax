@@ -5,26 +5,32 @@ const propIcons = [Shield, CheckCircle, TrendingUp, MapPin];
 
 export default function ValuesSection({ t }) {
   return (
-    <div className="relative z-20 py-12 bg-linear-to-r from-blue-950 via-[#0a0a1f] to-blue-950 border-t border-blue-900/40">
-      {/* Glowing Mid-Line */}
-      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-blue-500/40 to-transparent" />
-      
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div className="relative z-20 py-16 bg-white border-t border-gray-100 overflow-hidden">
+      {/* Light Animated Blue Backgrounds */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute -top-[50%] -left-[10%] w-[60%] h-[150%] bg-blue-100/80 rounded-full blur-[100px] mix-blend-multiply animate-[float_22s_ease-in-out_infinite]"></div>
+        <div className="absolute top-[10%] -right-[10%] w-[50%] h-[120%] bg-sky-100/50 rounded-full blur-[120px] mix-blend-multiply animate-[float_28s_ease-in-out_infinite_reverse]"></div>
+        <div className="absolute -bottom-[20%] left-[20%] w-[70%] h-full bg-indigo-50/90 rounded-full blur-[100px] mix-blend-multiply animate-[float_32s_ease-in-out_infinite_2s]"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {t.values.map((prop, i) => {
             const Icon = propIcons[i];
             return (
               <div
                 key={i}
-                className="group relative p-7 bg-white/3 backdrop-blur-md rounded-[28px] border border-blue-500/10 hover:border-blue-400/30 transition-all duration-500 shadow-xl overflow-hidden"
+                className="group relative p-8 bg-white/70 backdrop-blur-xl rounded-[32px] border border-white/60 hover:border-blue-200/60 transition-all duration-500 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.1)] overflow-hidden hover:-translate-y-1"
               >
-                <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/10 blur-[40px] rounded-full group-hover:bg-blue-500/20 transition-all" />
+                {/* Internal Hover Glow */}
+                <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-blue-400/20 blur-2xl rounded-full group-hover:bg-blue-400/40 transition-all duration-500" />
+                
                 <div className="relative z-10 flex flex-col items-start">
-                  <div className="w-11 h-11 bg-blue-500/10 rounded-xl flex items-center justify-center mb-5 text-blue-400 border border-blue-500/10 group-hover:scale-110 group-hover:rotate-6 transition-transform">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-14 h-14 bg-linear-to-br from-blue-50 to-blue-100/50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 border border-blue-200/50 group-hover:scale-110 group-hover:rotate-[8deg] transition-all duration-300 shadow-sm">
+                    <Icon className="w-6 h-6" />
                   </div>
-                  <h4 className="font-black text-white text-base mb-1.5 tracking-tight">{prop.title}</h4>
-                  <p className="text-blue-200/50 text-xs font-light leading-relaxed">{prop.desc}</p>
+                  <h4 className="font-bold text-slate-800 text-lg mb-2 tracking-tight group-hover:text-blue-700 transition-colors">{prop.title}</h4>
+                  <p className="text-slate-500 text-sm font-normal leading-relaxed">{prop.desc}</p>
                 </div>
               </div>
             );
