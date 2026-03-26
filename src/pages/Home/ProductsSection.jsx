@@ -1,19 +1,43 @@
-import React from 'react';
-import { Search, Activity, Shield, Wrench, Droplet, Cpu, ChevronRight } from 'lucide-react';
+import React from "react";
+import {
+  Search,
+  Activity,
+  Shield,
+  Wrench,
+  Droplet,
+  Cpu,
+  ChevronRight,
+} from "lucide-react";
 
 const productIcons = [Search, Activity, Shield, Wrench, Droplet, Cpu];
 
 export default function ProductsSection({ t, lang }) {
   return (
-    <section id="products" className="py-20 relative overflow-hidden z-10" style={{background: 'linear-gradient(160deg, #030310 0%, #020218 50%, #050525 100%)'}}>
+    <section
+      id="products"
+      className="py-20 relative overflow-hidden z-10"
+      style={{
+        background:
+          "linear-gradient(160deg, #030310 0%, #020218 50%, #050525 100%)",
+      }}
+    >
+      {/* Background Grid Pattern */}
+      <div
+        className="absolute inset-0 z-0 opacity-[0.2] bg-[linear-gradient(to_right,#1e3a8a_1px,transparent_1px),linear-gradient(to_bottom,#1e3a8a_1px,transparent_1px)] bg-size-[60px_60px] pointer-events-none"
+        style={{
+          maskImage: "radial-gradient(ellipse at center, black 50%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 50%, transparent 80%)",
+        }}
+      ></div>
+
       {/* Top Glow Line */}
       <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-[#1A1AFA]/30 to-transparent" />
       <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-[#1A1AFA]/8 blur-[120px] rounded-full pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#1A1AFA]/20 bg-[#1A1AFA]/8 text-blue-400 text-[10px] font-black tracking-[0.2em] uppercase">
-             PRODUCT CATALOGUE
+            PRODUCT CATALOGUE
           </div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-tight text-white">
             {t.products.title}
@@ -30,10 +54,13 @@ export default function ProductsSection({ t, lang }) {
               <div
                 key={idx}
                 className="group relative p-8 rounded-[32px] border border-blue-500/10 hover:border-[#1A1AFA]/40 transition-all duration-500 overflow-hidden h-full flex flex-col justify-between shadow-xl"
-                style={{background: 'linear-gradient(135deg, rgba(26,26,250,0.06) 0%, rgba(10,10,40,0.8) 100%)'}}
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(26,26,250,0.06) 0%, rgba(10,10,40,0.8) 100%)",
+                }}
               >
                 <div className="absolute -right-4 -bottom-4 w-28 h-28 bg-[#1A1AFA]/10 blur-[50px] rounded-full group-hover:bg-[#1A1AFA]/20 transition-all" />
-                
+
                 <div className="relative z-10">
                   <div className="w-14 h-14 bg-[#1A1AFA]/10 rounded-2xl flex items-center justify-center mb-6 text-blue-400 border border-blue-500/10 group-hover:bg-[#1A1AFA] group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                     <Icon className="w-7 h-7" />
@@ -47,12 +74,14 @@ export default function ProductsSection({ t, lang }) {
                 </div>
 
                 <div className="relative z-10 flex items-center gap-3 group-hover:translate-x-2 transition-transform duration-500">
-                   <div className="w-10 h-10 rounded-full bg-[#1A1AFA]/15 flex items-center justify-center text-blue-400 group-hover:bg-[#1A1AFA] group-hover:text-white transition-all">
-                      <ChevronRight className={`w-5 h-5 ${lang === 'ar' ? 'rotate-180' : ''}`} />
-                   </div>
-                   <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest">
-                      {t.products.reqSpecs}
-                   </span>
+                  <div className="w-10 h-10 rounded-full bg-[#1A1AFA]/15 flex items-center justify-center text-blue-400 group-hover:bg-[#1A1AFA] group-hover:text-white transition-all">
+                    <ChevronRight
+                      className={`w-5 h-5 ${lang === "ar" ? "rotate-180" : ""}`}
+                    />
+                  </div>
+                  <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest">
+                    {t.products.reqSpecs}
+                  </span>
                 </div>
               </div>
             );

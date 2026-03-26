@@ -37,7 +37,7 @@ export default function MainHeader({ lang, toggleLang, t, scrollTo, isScrolled }
       <nav
         className={`fixed w-full z-40 transition-all duration-500 ${
           isScrolled
-            ? "bg-[#03030f]/90 backdrop-blur-xl border-b border-blue-900/30 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+            ? "bg-blue-500/50 backdrop-blur-2xl border-b border-white/60 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.03)]"
             : "bg-transparent py-5"
         }`}
       >
@@ -46,7 +46,7 @@ export default function MainHeader({ lang, toggleLang, t, scrollTo, isScrolled }
             onClick={() => handleScrollTo("home", "/")}
             className="focus:outline-none z-60 relative"
           >
-            <Logo className="text-3xl md:text-4xl text-white drop-shadow-md" />
+            <Logo className={`text-3xl md:text-4xl drop-shadow-xs transition-colors duration-300 ${isScrolled ? "text-white" : "text-blue-900"}`} />
           </button>
 
           <Navbar
@@ -59,13 +59,13 @@ export default function MainHeader({ lang, toggleLang, t, scrollTo, isScrolled }
           />
 
           <button
-            className="lg:hidden text-white z-60 relative focus:outline-none"
+            className={`lg:hidden z-60 relative focus:outline-none transition-colors duration-300 ${isScrolled ? "text-white" : "text-slate-800"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X size={26} className="text-white" />
+              <X size={26} />
             ) : (
-              <Menu size={26} className="text-white" />
+               <Menu size={26} />
             )}
           </button>
         </div>

@@ -15,7 +15,7 @@ export default function Home({ t, lang, scrollTo }) {
       <AboutSection t={t} lang={lang} />
       <ProductsSection t={t} lang={lang} />
       <IndustriesSection t={t} lang={lang} />
-      <SolutionsSection t={t} />
+      <SolutionsSection t={t} lang={lang} />
       <ContactSection t={t} lang={lang} />
     </>
   );
