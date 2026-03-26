@@ -1,93 +1,177 @@
 import React from "react";
-import {
-  Droplet,
-  Factory,
-  Settings,
-  Zap,
-  HardHat,
-  ArrowRight,
-} from "lucide-react";
+import { Droplet, Factory, Settings, Zap, HardHat, Waves } from "lucide-react";
 
-const indIcons = [Droplet, Factory, Settings, Zap, HardHat, Droplet];
+const industries = [
+  {
+    Icon: Droplet,
+    image: "/8azzz.webp",
+    accent: "#0ea5e9",
+    label: "Water Treatment",
+  },
+  {
+    Icon: Factory,
+    image: "/petro.jpg",
+    accent: "#3b82f6",
+    label: "Manufacturing",
+  },
+  {
+    Icon: Settings,
+    image: "/tsne3.jpg",
+    accent: "#6366f1",
+    label: "Industrial Systems",
+  },
+  {
+    Icon: Zap,
+    image: "/twled.webp",
+    accent: "#f59e0b",
+    label: "Energy & Power",
+  },
+  {
+    Icon: HardHat,
+    image: "/t3deen.jpg",
+    accent: "#10b981",
+    label: "Construction",
+  },
+  {
+    Icon: Waves,
+    image: "/water.jpg",
+    accent: "#06b6d4",
+    label: "Marine & Offshore",
+  },
+];
 
 export default function IndustriesSection({ t, lang }) {
+  const items = t?.industries?.items || industries.map((i) => i.label);
+
   return (
     <section
       id="industries"
-      className="py-24 relative overflow-hidden z-20 bg-white"
+      className="py-22 relative overflow-hidden bg-white"
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
-      {/* Background Grid Pattern */}
+      {/* Dot grid background */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.05] bg-[linear-gradient(to_right,#1e3a8a_1px,transparent_1px),linear-gradient(to_bottom,#1e3a8a_1px,transparent_1px)] bg-size-[60px_60px] pointer-events-none"
+        className="absolute inset-0 opacity-[0.9]"
         style={{
-          maskImage: "radial-gradient(ellipse at center, black 50%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black 50%, transparent 80%)",
+          backgroundImage:
+            "radial-gradient(circle, #cbd5e1 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          maskImage:
+            "radial-gradient(ellipse 90% 80% at 50% 50%, black 90%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 90% 80% at 50% 50%, black 90%, transparent 100%)",
         }}
-      ></div>
+      />
+      {/* Soft color blobs */}
+      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-blue-100 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-32 w-[400px] h-[400px] bg-sky-100 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Premium Background Elements */}
-      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-blue-100 to-transparent opacity-50" />
-      <div className="absolute top-1/4 -right-24 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[120px] pointer-events-none animate-pulse" />
-      <div className="absolute bottom-1/4 -left-24 w-[400px] h-[400px] bg-sky-50/50 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-          <div className="max-w-2xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-100 bg-blue-50/50 text-blue-700 text-xs font-bold tracking-wider uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
-              CORE SECTORS
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-10">
+          <div className="space-y-6 max-w-xl">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-400 text-xs font-semibold tracking-[0.15em] uppercase">
+              <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+              {lang === "ar" ? "قطاعاتنا" : "Core Sectors"}
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.1]!">
-              {t.industries.title}
+
+            <h2
+              className="text-5xl md:text-6xl font-black text-slate-900 leading-[1.05] tracking-tight"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              {t?.industries?.title || (
+                <>
+                  Industries
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-500 via-blue-600 to-indigo-500">
+                    We Serve
+                  </span>
+                </>
+              )}
             </h2>
-            <div className="w-24 h-1.5 bg-linear-to-r from-blue-600 via-blue-400 to-cyan-300 rounded-full"></div>
+
+            <div className="flex items-center gap-3">
+              <div className="h-[3px] w-16 bg-linear-to-r from-sky-500 to-blue-500 rounded-full" />
+              <div className="h-[3px] w-6 bg-sky-500/30 rounded-full" />
+              <div className="h-[3px] w-3 bg-sky-500/15 rounded-full" />
+            </div>
           </div>
-          <p className="text-slate-500 max-w-sm text-lg font-medium leading-relaxed">
-            {t.industries.subtitle}
+
+          <p className="text-slate-400 max-w-xs text-base leading-relaxed lg:text-right font-light">
+            {t?.industries?.subtitle ||
+              "Delivering precision engineering solutions across critical industrial sectors worldwide."}
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {t.industries.items.map((name, idx) => {
-            const Icon = indIcons[idx];
+        {/* Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {items.map((name, idx) => {
+            const { Icon, image, accent } = industries[idx] || industries[0];
             return (
               <div
                 key={idx}
-                className="group relative h-[420px] rounded-[48px] overflow-hidden transition-all duration-700 hover:-translate-y-2 cursor-pointer shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_-20px_rgba(37,99,235,0.15)] bg-white border border-slate-100"
+                className="group relative rounded-3xl overflow-hidden cursor-pointer"
+                style={{ height: "380px" }}
               >
-                {/* Image Layer */}
-                <div className="absolute inset-0 z-0">
-                  <img 
-                    src="/Hero-image.jpeg" 
-                    className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000 ease-out opacity-20 group-hover:opacity-40 grayscale group-hover:grayscale-0" 
-                    alt={name} 
+                {/* Full bleed image — clearly visible */}
+                <img
+                  src={image}
+                  alt={name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+
+                {/* Dark overlay — lighter so image shows through */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/30 to-black/10 transition-opacity duration-500" />
+
+                {/* Colored accent glow on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700"
+                  style={{
+                    background: `radial-gradient(circle at 30% 70%, ${accent}, transparent 65%)`,
+                  }}
+                />
+
+                {/* Top-left: icon badge */}
+                <div className="absolute top-6 left-6 z-10">
+                  <div
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center backdrop-blur-md border border-white/10 transition-all duration-500 group-hover:scale-110"
+                    style={{
+                      background: `linear-gradient(135deg, ${accent}33, ${accent}11)`,
+                      boxShadow: `0 4px 20px ${accent}40`,
+                    }}
+                  >
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+
+                {/* Top-right: index number */}
+                <div className="absolute top-6 right-6 z-10">
+                  <span className="text-white/25 text-xs font-bold tracking-widest tabular-nums group-hover:text-white/50 transition-colors duration-500">
+                    0{idx + 1}
+                  </span>
+                </div>
+
+                {/* Bottom content */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-7">
+                  {/* Animated accent bar */}
+                  <div
+                    className="h-[2px] w-8 rounded-full mb-4 transition-all duration-500 group-hover:w-16"
+                    style={{ background: accent }}
                   />
-                  {/* Premium Overlays */}
-                  <div className="absolute inset-0 bg-linear-to-t from-white via-white/40 to-transparent z-10" />
-                  <div className="absolute inset-0 bg-linear-to-b from-blue-50/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10" />
-                </div>
-                
-                {/* Content Layer */}
-                <div className="relative z-20 h-full flex flex-col justify-between p-10">
-                  <div className="flex justify-between items-start">
-                    <div className="w-16 h-16 bg-white shadow-xl shadow-blue-900/5 rounded-[22px] flex items-center justify-center text-blue-600 border border-slate-50 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-10 transition-all duration-500">
-                      <Icon className="w-8 h-8" />
-                    </div>
-                    <div className="w-12 h-12 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-blue-600 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 border border-white shadow-lg">
-                      <ArrowRight className={`w-5 h-5 ${lang === "ar" ? "rotate-180" : ""}`} />
-                    </div>
-                  </div>
 
-                  <div className="space-y-4">
-                    <div className="h-1 w-12 bg-blue-600/20 rounded-full group-hover:w-20 group-hover:bg-blue-600 transition-all duration-500" />
-                    <h3 className="text-3xl font-black text-slate-800 tracking-tight leading-tight group-hover:text-blue-700 transition-colors duration-500">
-                      {name}
-                    </h3>
-                  </div>
+                  <h3 className="text-2xl font-bold text-white leading-tight tracking-tight group-hover:text-white transition-colors duration-300">
+                    {name}
+                  </h3>
                 </div>
 
-                {/* Subtle Hover Border Glow */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-600/10 rounded-[48px] transition-colors duration-500 z-30 pointer-events-none" />
+                {/* Border glow on hover */}
+                <div
+                  className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-white/10 transition-colors duration-500 pointer-events-none"
+                  style={{
+                    boxShadow: `inset 0 0 0 1px transparent`,
+                  }}
+                />
               </div>
             );
           })}

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Search,
   Activity,
@@ -23,10 +22,12 @@ export default function ProductsSection({ t, lang }) {
     >
       {/* Background Grid Pattern */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.2] bg-[linear-gradient(to_right,#1e3a8a_1px,transparent_1px),linear-gradient(to_bottom,#1e3a8a_1px,transparent_1px)] bg-size-[60px_60px] pointer-events-none"
+        className="absolute inset-0 z-0 opacity-[0.3] bg-[linear-gradient(to_right,#1e3a8a_1px,transparent_1px),linear-gradient(to_bottom,#1e3a8a_1px,transparent_1px)] bg-size-[60px_60px] pointer-events-none"
         style={{
-          maskImage: "radial-gradient(ellipse at center, black 50%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse at center, black 50%, transparent 80%)",
+          maskImage:
+            "radial-gradient(ellipse at center, black 50%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 50%, transparent 80%)",
         }}
       ></div>
 
@@ -37,7 +38,7 @@ export default function ProductsSection({ t, lang }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#1A1AFA]/20 bg-[#1A1AFA]/8 text-blue-400 text-[10px] font-black tracking-[0.2em] uppercase">
-            PRODUCT CATALOGUE
+            {lang === "ar" ? "منتجاتنا" : "PRODUCT CATALOGUE"}
           </div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-tight text-white">
             {t.products.title}
@@ -53,7 +54,7 @@ export default function ProductsSection({ t, lang }) {
             return (
               <div
                 key={idx}
-                className="group relative p-8 rounded-[32px] border border-blue-500/10 hover:border-[#1A1AFA]/40 transition-all duration-500 overflow-hidden h-full flex flex-col justify-between shadow-xl"
+                className="group relative p-8 rounded-[32px] text-center border border-blue-500/10 hover:border-[#1A1AFA]/40 transition-all duration-500 overflow-hidden h-full flex flex-col justify-between shadow-xl"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(26,26,250,0.06) 0%, rgba(10,10,40,0.8) 100%)",
@@ -62,26 +63,15 @@ export default function ProductsSection({ t, lang }) {
                 <div className="absolute -right-4 -bottom-4 w-28 h-28 bg-[#1A1AFA]/10 blur-[50px] rounded-full group-hover:bg-[#1A1AFA]/20 transition-all" />
 
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-[#1A1AFA]/10 rounded-2xl flex items-center justify-center mb-6 text-blue-400 border border-blue-500/10 group-hover:bg-[#1A1AFA] group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <div className="w-14 h-14 bg-[#1A1AFA]/10 rounded-2xl flex items-center justify-center mb-6 text-blue-400 border border-blue-500/10 group-hover:bg-[#1A1AFA] group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 mx-auto">
                     <Icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-black text-white mb-3 tracking-tight group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black text-white mb-3 tracking-tight group-hover:text-blue-300 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-blue-200/45 text-sm font-light leading-relaxed mb-6">
+                  <p className="text-blue-200/60 font-light leading-relaxed mb-6">
                     {item.desc}
                   </p>
-                </div>
-
-                <div className="relative z-10 flex items-center gap-3 group-hover:translate-x-2 transition-transform duration-500">
-                  <div className="w-10 h-10 rounded-full bg-[#1A1AFA]/15 flex items-center justify-center text-blue-400 group-hover:bg-[#1A1AFA] group-hover:text-white transition-all">
-                    <ChevronRight
-                      className={`w-5 h-5 ${lang === "ar" ? "rotate-180" : ""}`}
-                    />
-                  </div>
-                  <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest">
-                    {t.products.reqSpecs}
-                  </span>
                 </div>
               </div>
             );

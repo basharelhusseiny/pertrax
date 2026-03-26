@@ -5,7 +5,13 @@ import Navbar from "./Navbar";
 import MobileMenu from "./MobileMenu";
 import { useNavigate } from "react-router";
 
-export default function MainHeader({ lang, toggleLang, t, scrollTo, isScrolled }) {
+export default function MainHeader({
+  lang,
+  toggleLang,
+  t,
+  scrollTo,
+  isScrolled,
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -37,7 +43,7 @@ export default function MainHeader({ lang, toggleLang, t, scrollTo, isScrolled }
       <nav
         className={`fixed w-full z-40 transition-all duration-500 ${
           isScrolled
-            ? "bg-blue-500/50 backdrop-blur-2xl border-b border-white/60 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.03)]"
+            ? "bg-[#184293]/80 backdrop-blur-2xl border-b border-white/60 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.03)]"
             : "bg-transparent py-5"
         }`}
       >
@@ -46,7 +52,10 @@ export default function MainHeader({ lang, toggleLang, t, scrollTo, isScrolled }
             onClick={() => handleScrollTo("home", "/")}
             className="focus:outline-none z-60 relative"
           >
-            <Logo className={`text-3xl md:text-4xl drop-shadow-xs transition-colors duration-300 ${isScrolled ? "text-white" : "text-blue-900"}`} />
+            <Logo
+              isScrolled={isScrolled}
+              className="h-10 md:h-12 w-auto"
+            />
           </button>
 
           <Navbar
@@ -62,11 +71,7 @@ export default function MainHeader({ lang, toggleLang, t, scrollTo, isScrolled }
             className={`lg:hidden z-60 relative focus:outline-none transition-colors duration-300 ${isScrolled ? "text-white" : "text-slate-800"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? (
-              <X size={26} />
-            ) : (
-               <Menu size={26} />
-            )}
+            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </nav>

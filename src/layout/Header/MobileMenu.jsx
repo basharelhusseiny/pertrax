@@ -29,7 +29,7 @@ export default function MobileMenu({
 
       {/* Header Row */}
       <div className="flex items-center justify-between px-6 pt-5 pb-6 border-b border-blue-900/30 relative z-10">
-        <Logo className="text-3xl text-white" />
+        <Logo isScrolled={true} className="h-8 md:h-10 w-auto" />
         <button
           onClick={closeMenu}
           className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all"

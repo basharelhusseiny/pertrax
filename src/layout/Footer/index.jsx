@@ -15,7 +15,7 @@ export default function Footer({ t }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start pb-12">
           <div className="space-y-4">
-            <Logo className="text-2xl text-white opacity-60 hover:opacity-100 transition-all duration-500 cursor-pointer" />
+            <Logo isScrolled={true} className="h-8 md:h-10 opacity-70 hover:opacity-100 transition-all duration-500 cursor-pointer" />
             <p className="text-blue-200/35 text-sm font-light leading-relaxed max-w-sm">
               {t.footer.desc}
             </p>
