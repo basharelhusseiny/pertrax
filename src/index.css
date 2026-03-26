@@ -38,3 +38,47 @@ body, [dir="ltr"] {
 [dir="rtl"] {
   font-family: 'Cairo', sans-serif;
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #9cc8f4; /* slate-50 */
+}
+::-webkit-scrollbar-thumb {
+  background: #2563eb; /* slate-300 */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2c406d; /* slate-400 */
+}
+
+/* Testimonials Swiper Pagination */
+.testimonials-swiper {
+  padding-bottom: 50px !important;
+}
+
+.testimonials-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.testimonials-swiper .swiper-pagination-bullet {
+  background-color: #93c5fd !important; /* blue-300 */
+  opacity: 0.5 !important;
+  width: 8px !important;
+  height: 8px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  background-color: #2563eb !important; /* blue-600 */
+  opacity: 1 !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+.testimonials-swiper .swiper-pagination-bullet:hover {
+  background-color: #3b82f6 !important; /* blue-500 */
+  opacity: 1 !important;
+}

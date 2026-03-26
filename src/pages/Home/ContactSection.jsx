@@ -1,4 +1,3 @@
-import React from "react";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 
 export default function ContactSection({ t }) {
