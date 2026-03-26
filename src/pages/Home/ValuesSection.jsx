@@ -1,36 +1,57 @@
-import React from 'react';
-import { Shield, CheckCircle, TrendingUp, MapPin } from 'lucide-react';
+import React from "react";
+import { Shield, CheckCircle, TrendingUp, MapPin } from "lucide-react";
 
 const propIcons = [Shield, CheckCircle, TrendingUp, MapPin];
 
-export default function ValuesSection({ t }) {
+export default function ValuesSection({ t, lang }) {
+  const isAr = lang === "ar";
+
   return (
-    <div className="relative z-20 py-16 bg-white border-t border-gray-100 overflow-hidden">
+    <div className="relative z-20 py-12 sm:py-20 bg-white border-t border-gray-100 overflow-hidden">
       {/* Light Animated Blue Backgrounds */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute -top-[50%] -left-[10%] w-[60%] h-[150%] bg-blue-100/80 rounded-full blur-[100px] mix-blend-multiply animate-[float_22s_ease-in-out_infinite]"></div>
         <div className="absolute top-[10%] -right-[10%] w-[50%] h-[120%] bg-sky-100/50 rounded-full blur-[120px] mix-blend-multiply animate-[float_28s_ease-in-out_infinite_reverse]"></div>
-        <div className="absolute -bottom-[20%] left-[20%] w-[70%] h-full bg-indigo-50/90 rounded-full blur-[100px] mix-blend-multiply animate-[float_32s_ease-in-out_infinite_2s]"></div>
+        <div className="absolute -bottom-[20%] left-[20%] w-[70%] h-[200%] bg-indigo-50/90 rounded-full blur-[100px] mix-blend-multiply animate-[float_32s_ease-in-out_infinite_2s]"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-10 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-blue-200/60 bg-blue-50/80 shadow-sm text-blue-600 text-[11px] font-black tracking-widest uppercase mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            {isAr ? "قيمنا" : "Our Values"}
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight text-slate-900 leading-[1.1]">
+            {isAr ? "مبادئ تقود نجاحنا" : "Principles that Drive Our Success"}
+          </h2>
+          <p className="text-slate-500 text-lg md:text-xl font-light leading-relaxed">
+            {isAr
+              ? "نؤمن بأن القيم الراسخة هي أساس التطور المستمر، ولذلك نبني علاقاتنا وأعمالنا على مبادئ الشفافية والتميز."
+              : "We believe that solid values are the foundation of continuous progress. We build our business with transparency and excellence."}
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {t.values.map((prop, i) => {
             const Icon = propIcons[i];
             return (
               <div
                 key={i}
-                className="group relative p-8 bg-white/70 backdrop-blur-xl rounded-[32px] border border-white/60 hover:border-blue-200/60 transition-all duration-500 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.1)] overflow-hidden hover:-translate-y-1"
+                className="group text-center relative p-8 bg-white/70 backdrop-blur-xl rounded-[32px] border border-white/60 hover:border-blue-200/60 transition-all duration-500 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(59,130,246,0.1)] overflow-hidden hover:-translate-y-1"
               >
                 {/* Internal Hover Glow */}
                 <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-blue-400/20 blur-2xl rounded-full group-hover:bg-blue-400/40 transition-all duration-500" />
-                
-                <div className="relative z-10 flex flex-col items-start">
+
+                <div className="relative z-10 flex flex-col items-center">
                   <div className="w-14 h-14 bg-linear-to-br from-blue-50 to-blue-100/50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 border border-blue-200/50 group-hover:scale-110 group-hover:rotate-[8deg] transition-all duration-300 shadow-sm">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h4 className="font-bold text-slate-800 text-lg mb-2 tracking-tight group-hover:text-blue-700 transition-colors">{prop.title}</h4>
-                  <p className="text-slate-500 text-sm font-normal leading-relaxed">{prop.desc}</p>
+                  <h4 className="font-bold text-slate-800 text-lg mb-2 tracking-tight group-hover:text-blue-700 transition-colors">
+                    {prop.title}
+                  </h4>
+                  <p className="text-slate-500 text-sm font-normal leading-relaxed">
+                    {prop.desc}
+                  </p>
                 </div>
               </div>
             );

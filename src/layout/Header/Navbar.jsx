@@ -15,13 +15,25 @@ export default function Navbar({ navLinks, handleScrollTo, toggleLang, t, isScro
         </button>
       ))}
 
-      <div className={`flex items-center border-l px-5 mx-1 h-5 ${isScrolled ? "border-white/30" : "border-slate-300"}`}>
+      <div className="flex items-center ml-2">
         <button
           onClick={toggleLang}
-          className={`flex items-center gap-2 text-xs font-bold tracking-wide transition-all duration-300 ${isScrolled ? "text-white/90 hover:text-white" : "text-slate-600 hover:text-blue-700"}`}
+          className={`group relative flex items-center gap-2.5 px-3 py-1.5 rounded-xl border transition-all duration-500 overflow-hidden ${
+            isScrolled 
+              ? "bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/40 text-white shadow-sm" 
+              : "bg-white hover:bg-blue-50/80 border-slate-200 hover:border-blue-200 text-slate-600 hover:text-blue-700 shadow-sm hover:shadow-md"
+          }`}
         >
-          <Globe className="w-3.5 h-3.5" />
-          {t.nav.lang}
+          <div className={`flex items-center justify-center w-6 h-6 rounded-full transition-all duration-500 ${
+            isScrolled ? "bg-white/20 group-hover:bg-white/30" : "bg-slate-100 group-hover:bg-blue-100/50"
+          }`}>
+            <Globe className={`w-3.5 h-3.5 transition-transform duration-700 group-hover:rotate-360 ${
+              isScrolled ? "text-white" : "text-slate-500 group-hover:text-blue-600"
+            }`} />
+          </div>
+          <span className="text-base font-black tracking-widest uppercase pr-1">
+            {t.nav.lang}
+          </span>
         </button>
       </div>
 

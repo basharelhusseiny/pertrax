@@ -14,7 +14,7 @@ export default function ProductsSection({ t, lang }) {
   return (
     <section
       id="products"
-      className="py-20 relative overflow-hidden z-10"
+      className="py-12 sm:py-20 relative overflow-hidden z-10"
       style={{
         background:
           "linear-gradient(160deg, #030310 0%, #020218 50%, #050525 100%)",

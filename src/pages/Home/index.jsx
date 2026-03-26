@@ -11,7 +11,7 @@ export default function Home({ t, lang, scrollTo }) {
   return (
     <>
       <HeroSection t={t} lang={lang} scrollTo={scrollTo} />
-      <ValuesSection t={t} />
+      <ValuesSection t={t} lang={lang} />
       <AboutSection t={t} lang={lang} />
       <ProductsSection t={t} lang={lang} />
       <IndustriesSection t={t} lang={lang} />

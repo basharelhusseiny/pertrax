@@ -6,7 +6,7 @@ export default function AboutSection({ t, lang }) {
   return (
     <section
       id="about"
-      className="py-22 relative overflow-hidden z-10 bg-linear-to-b from-white via-blue-600/80 to-blue-600/80"
+      className="py-12 sm:py-20 relative overflow-hidden z-10 bg-linear-to-b from-white via-blue-600/80 to-blue-600/80"
     >
       {/* Light Animated Blue Backgrounds matching Values Section */}
       <div className="absolute inset-0 z-0 pointer-events-none">

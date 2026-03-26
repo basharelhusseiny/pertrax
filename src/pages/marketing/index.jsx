@@ -80,7 +80,7 @@ export default function MarketingPage({ t, lang }) {
       />
 
       {/* Floating Chat */}
-      <ChatWidget t={t} lang={lang} />
+      {/* <ChatWidget t={t} lang={lang} /> */}
 
       {/* Custom Styles for this page */}
       <style dangerouslySetInnerHTML={{__html: `

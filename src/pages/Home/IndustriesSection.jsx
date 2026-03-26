@@ -46,7 +46,7 @@ export default function IndustriesSection({ t, lang }) {
   return (
     <section
       id="industries"
-      className="py-22 relative overflow-hidden bg-white"
+      className="py-12 sm:py-20 relative overflow-hidden bg-white"
       style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
       {/* Dot grid background */}

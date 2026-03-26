@@ -5,7 +5,7 @@ export default function ContactSection({ t }) {
   return (
     <section
       id="contact"
-      className="py-24 relative overflow-hidden z-10 bg-white"
+      className="py-12 sm:py-20 relative overflow-hidden z-10 bg-white"
     >
       {/* Background Grid Pattern */}
       <div

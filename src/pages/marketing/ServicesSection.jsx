@@ -1,33 +1,55 @@
-import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import React from "react";
+import { ArrowUpRight } from "lucide-react";
 
-export default function ServicesSection({ t, lang, selectedServices, openProjectModal }) {
+export default function ServicesSection({
+  t,
+  lang,
+  selectedServices,
+  openProjectModal,
+}) {
   return (
     <section
       id="services"
-      className="py-20 relative z-10 overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, #030318 0%, #050528 60%, #020215 100%)' }}
+      className="py-12 sm:py-20 relative z-10 overflow-hidden bg-[#fafcff]"
     >
-      {/* Top divider */}
-      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-blue-500/20 to-transparent" />
-      {/* Orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1A1AFA]/8 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-800/8 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-      
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/15 bg-blue-500/8 text-blue-400 text-[9px] font-black tracking-[0.2em] uppercase mb-5">
+      {/* --- Premium Background --- */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ zIndex: 0 }}
+      >
+        {/* Soft Modern Grid */}
+        <div
+          className="absolute inset-0 opacity-[0.6]"
+          style={{
+            backgroundImage: `linear-gradient(to right, rgba(59, 130, 246, 0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(59, 130, 246, 0.12) 1px, transparent 1px)`,
+            backgroundSize: "4rem 4rem",
+            maskImage:
+              "radial-gradient(ellipse 70% 70% at 50% 50%, #000 30%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 70% at 50% 50%, #000 30%, transparent 100%)",
+          }}
+        />
+
+        {/* Dynamic Abstract Glows */}
+        <div className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-blue-300/35 blur-[120px] rounded-full mix-blend-multiply" />
+        <div className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-cyan-200/50 blur-[130px] rounded-full mix-blend-multiply" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-blue-200 bg-white shadow-sm text-blue-600 text-[11px] font-black tracking-widest uppercase mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
             Our Expertise
           </div>
-          <h2 className="text-3xl md:text-5xl font-black mb-5 leading-tight tracking-tight text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight text-slate-900 leading-[1.1]">
             {t.marketing.services.title}
           </h2>
-          <p className="text-blue-200/45 text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-500 text-lg md:text-xl font-light leading-relaxed">
             {t.marketing.services.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {t.marketing.services.items.map((service) => {
             const Icon = service.icon;
             const isSelected = selectedServices.includes(service.id);
@@ -35,42 +57,72 @@ export default function ServicesSection({ t, lang, selectedServices, openProject
               <div
                 key={service.id}
                 onClick={() => openProjectModal(service.id)}
-                className={`group relative p-8 rounded-[32px] border cursor-pointer overflow-hidden transition-all duration-500 h-full flex flex-col justify-between ${
+                className={`group relative p-8 md:p-10 rounded-[2.5rem] cursor-pointer overflow-hidden transition-all duration-700 flex flex-col justify-between ${
                   isSelected
-                    ? 'border-[#1A1AFA] shadow-[0_20px_40px_-10px_rgba(26,26,250,0.35)]'
-                    : 'border-blue-500/10 hover:border-blue-400/30'
+                    ? "shadow-[0_20px_40px_-15px_rgba(37,99,235,0.4)] hover:shadow-[0_25px_50px_-15px_rgba(37,99,235,0.5)] -translate-y-2"
+                    : "bg-white border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.1)] hover:border-blue-200 hover:-translate-y-2"
                 }`}
                 style={{
                   background: isSelected
-                    ? 'linear-gradient(135deg, #1A1AFA 0%, #1010c0 100%)'
-                    : 'linear-gradient(135deg, rgba(26,26,250,0.06) 0%, rgba(3,3,30,0.95) 100%)',
+                    ? "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)"
+                    : "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
                 }}
               >
-                <div className={`absolute -right-4 -bottom-4 w-28 h-28 rounded-full blur-[60px] opacity-20 transition-all duration-700 ${isSelected ? 'bg-white' : 'bg-blue-500'}`} />
-                
+                {/* Decorative Highlights */}
+                {isSelected && (
+                  <>
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-sky-200/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
+                  </>
+                )}
+                {!isSelected && (
+                  <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-100/50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                )}
+
                 <div className="relative z-10 flex-1">
-                  <div className={`w-14 h-14 rounded-[20px] flex items-center justify-center mb-6 transition-all duration-500 ${
-                    isSelected
-                      ? 'bg-white/20 rotate-12 scale-105'
-                      : 'bg-blue-900/40 text-blue-400 border border-blue-500/15 group-hover:rotate-12 group-hover:scale-105 group-hover:bg-[#1A1AFA] group-hover:text-white'
-                  }`}>
-                    <Icon className={`w-7 h-7 ${isSelected ? 'text-white' : 'text-blue-400 group-hover:text-white'}`} strokeWidth={1.5} />
+                  {/* Icon Container */}
+                  <div
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${
+                      isSelected
+                        ? "bg-white/20 border border-white/20 text-white shadow-inner"
+                        : "bg-white border border-slate-100 text-blue-600 shadow-xl shadow-blue-900/5 group-hover:shadow-blue-600/20 group-hover:border-blue-200"
+                    }`}
+                  >
+                    <Icon className="w-8 h-8" strokeWidth={1.5} />
                   </div>
-                  
-                  <h3 className={`text-xl font-black mb-3 tracking-tight transition-colors duration-500 ${isSelected ? 'text-white' : 'text-white group-hover:text-blue-300'}`}>
+
+                  {/* Title & Desc */}
+                  <h3
+                    className={`text-2xl font-black mb-4 tracking-tight transition-colors duration-500 ${isSelected ? "text-white" : "text-slate-900 group-hover:text-blue-600"}`}
+                  >
                     {service.title}
                   </h3>
-                  <p className={`text-sm leading-relaxed font-light transition-colors duration-500 ${isSelected ? 'text-blue-100/75' : 'text-blue-200/45'}`}>
+                  <p
+                    className={`text-base leading-relaxed font-light transition-colors duration-500 ${isSelected ? "text-blue-100/90" : "text-slate-500 group-hover:text-slate-600"}`}
+                  >
                     {service.desc}
                   </p>
                 </div>
 
-                <div className="relative z-10 mt-8 flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-500">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 ${isSelected ? 'bg-white/20' : 'bg-[#1A1AFA]/15'}`}>
-                    <ExternalLink className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-blue-400'}`} />
+                {/* Bottom Action */}
+                <div className="relative z-10 mt-10 flex items-center gap-3">
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:translate-x-2 ${
+                      isSelected
+                        ? "bg-white/20 text-white"
+                        : "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-md"
+                    }`}
+                  >
+                    <ArrowUpRight className="w-5 h-5" />
                   </div>
-                  <span className={`text-[10px] font-black uppercase tracking-widest ${isSelected ? 'text-white' : 'text-blue-400'}`}>
-                    {lang === 'en' ? 'Add to Project' : 'إضافة للمشروع'}
+                  <span
+                    className={`text-xs font-black uppercase tracking-widest transition-all duration-500 group-hover:translate-x-2 ${
+                      isSelected
+                        ? "text-white"
+                        : "text-slate-400 group-hover:text-blue-600"
+                    }`}
+                  >
+                    {lang === "en" ? "Add to Project" : "إضافة للمشروع"}
                   </span>
                 </div>
               </div>

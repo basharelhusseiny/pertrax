@@ -82,7 +82,7 @@ function AppContent() {
         </Routes>
       </Layout>
 
-      {location.pathname === "/" && <Chatbot t={t} lang={lang} />}
+      {/* {location.pathname === "/" && <Chatbot t={t} lang={lang} />} */}
     </div>
   );
 }

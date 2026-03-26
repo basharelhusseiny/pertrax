@@ -5,7 +5,7 @@ export default function SolutionsSection({ t, lang }) {
   return (
     <section
       id="solutions"
-      className="py-20 relative overflow-hidden z-10 border-t border-blue-900/30"
+      className="py-12 sm:py-20 relative overflow-hidden z-10 border-t border-blue-900/30"
       style={{
         background:
           "linear-gradient(135deg, #04041e 0%, #06062a 50%, #030318 100%)",
