@@ -20,7 +20,7 @@ export default function ProjectModal({
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC);
   }, []);
 
   if (!isModalOpen) return null;

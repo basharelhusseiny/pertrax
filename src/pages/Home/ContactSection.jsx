@@ -16,7 +16,7 @@ export default function ContactSection({ t }) {
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC);
   }, []);
 
   const handleChange = (e) => {
