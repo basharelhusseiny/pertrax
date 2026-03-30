@@ -75,13 +75,13 @@ export default function Footer({ t, lang }) {
                 dir="ltr"
               >
                 <Phone className="w-5 h-5 text-blue-400/70" />
-                <span>+966 11 123 4567</span>
+                <span>+966 53 734 7710</span>
               </div>
               <div className="flex items-start gap-4 text-blue-200/60 text-sm font-medium leading-relaxed max-w-[250px]">
                 <MapPin className="w-5 h-5 text-blue-400/70 shrink-0 mt-0.5" />
                 {isAr
-                  ? "مركز الملك عبدالله المالي، الرياض، المملكة العربية السعودية"
-                  : "King Abdullah Financial District, Riyadh, Saudi Arabia"}
+                  ? "الخبر، المنطقة الشرقية، المملكة العربية السعودية"
+                  : "Khobar, Eastern province, Saudi Arabia "}
               </div>
             </div>
           </div>

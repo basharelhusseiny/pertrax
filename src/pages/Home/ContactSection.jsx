@@ -1,6 +1,103 @@
 import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection({ t }) {
+  const formRef = useRef();
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    dept: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState({ type: "", message: "" });
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setFeedback({ type: "", message: "" });
+
+    try {
+      // Validate required fields
+      if (
+        !formData.name ||
+        !formData.email ||
+        !formData.company ||
+        !formData.dept ||
+        !formData.message
+      ) {
+        setFeedback({
+          type: "error",
+          message: t.contact.validation.required,
+        });
+        setLoading(false);
+        return;
+      }
+
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        setFeedback({
+          type: "error",
+          message: t.contact.validation.invalidEmail,
+        });
+        setLoading(false);
+        return;
+      }
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        department: formData.dept,
+        message: formData.message,
+      };
+
+      const response = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_INFO_TEMPLATE_ID,
+        templateParams,
+      );
+
+      if (response.status === 200) {
+        setFeedback({
+          type: "success",
+          message: t.contact.messages.success,
+        });
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          dept: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setFeedback({
+        type: "error",
+        message: t.contact.messages.error,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -54,7 +151,7 @@ export default function ContactSection({ t }) {
                   {
                     icon: Phone,
                     label: t.contact.phone,
-                    val: "+966 11 123 4567",
+                    val: "+966 53 734 7710",
                   },
                   {
                     icon: Mail,
@@ -93,44 +190,76 @@ export default function ContactSection({ t }) {
                 {t.contact.formTitle}
               </h3>
               <div className="w-12 h-1 bg-blue-600 rounded-full mb-10"></div>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              {feedback.message && (
+                <div
+                  className={`mb-6 p-4 rounded-2xl text-sm font-medium ${
+                    feedback.type === "success"
+                      ? "bg-green-50 text-green-800 border border-green-200"
+                      : "bg-red-50 text-red-800 border border-red-200"
+                  }`}
+                >
+                  {feedback.message}
+                </div>
+              )}
+              <form className="space-y-6" ref={formRef} onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {[
                     {
+                      name: "name",
                       label: t.contact.labels.name,
                       type: "text",
                       ph: t.contact.placeholders.name,
+                      required: true,
                     },
                     {
+                      name: "company",
                       label: t.contact.labels.company,
                       type: "text",
                       ph: t.contact.placeholders.company,
+                      required: true,
                     },
                     {
+                      name: "email",
                       label: t.contact.labels.email,
                       type: "email",
                       ph: t.contact.placeholders.email,
+                      required: true,
                     },
-                  ].map(({ label, type, ph }, i) => (
+                  ].map(({ name, label, type, ph, required }, i) => (
                     <div key={i} className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">
+                      <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1 flex items-center gap-1">
                         {label}
+                        {required && (
+                          <span className="text-red-500 font-black">*</span>
+                        )}
                       </label>
                       <input
                         type={type}
+                        name={name}
+                        value={formData[name]}
+                        onChange={handleChange}
                         className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none text-sm placeholder:text-slate-300 shadow-sm"
                         placeholder={ph}
+                        required={required}
                       />
                     </div>
                   ))}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1 flex items-center gap-1">
                       {t.contact.labels.dept}
+                      <span className="text-red-500 font-black">*</span>
                     </label>
                     <div className="relative">
-                      <select className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none text-sm shadow-sm appearance-none cursor-pointer">
+                      <select
+                        name="dept"
+                        value={formData.dept}
+                        onChange={handleChange}
+                        className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none text-sm shadow-sm appearance-none cursor-pointer"
+                        required
+                      >
+                        <option value="">{t.contact.selectDept}</option>
                         {t.contact.depts.map((d, i) => (
-                          <option key={i} className="bg-white">
+                          <option key={i} className="bg-white" value={d}>
                             {d}
                           </option>
                         ))}
@@ -155,20 +284,38 @@ export default function ContactSection({ t }) {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1 flex items-center gap-1">
                     {t.contact.labels.msg}
+                    <span className="text-red-500 font-black">*</span>
                   </label>
                   <textarea
                     rows="4"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none text-sm resize-none placeholder:text-slate-300 shadow-sm"
                     placeholder={t.contact.placeholders.msg}
+                    required
                   ></textarea>
                 </div>
 
-                <button className="group relative w-full py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold text-base flex items-center justify-center gap-3 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(37,99,235,0.4)] active:scale-[0.98]">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="group relative w-full py-5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-2xl font-bold text-base flex items-center justify-center gap-3 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(37,99,235,0.4)] active:scale-[0.98] disabled:cursor-not-allowed"
+                >
                   <div className="absolute inset-0 bg-linear-to-r from-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                  <Send className="w-5 h-5" />
-                  {t.contact.submit}
+                  {loading ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      {t.dir === "rtl" ? "جاري الإرسال..." : "Sending..."}
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      {t.contact.submit}
+                    </>
+                  )}
                 </button>
               </form>
             </div>

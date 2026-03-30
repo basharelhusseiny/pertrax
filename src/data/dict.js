@@ -1,6 +1,14 @@
-import { 
-  Palette, Sparkles, TrendingUp, Code, Smartphone, BarChart3, Target, Zap, Layers 
-} from 'lucide-react';
+import {
+  Palette,
+  Sparkles,
+  TrendingUp,
+  Code,
+  Smartphone,
+  BarChart3,
+  Target,
+  Zap,
+  Layers,
+} from "lucide-react";
 
 const dict = {
   en: {
@@ -118,7 +126,7 @@ const dict = {
       subtitle:
         "Your gateway to industrial excellence. We're ready to provide expert support.",
       hq: "Headquarters",
-      hqDesc: "King Abdullah Financial District, Riyadh, Saudi Arabia",
+      hqDesc: "Khobar, Eastern province, Saudi Arabia",
       phone: "Phone",
       email: "Email",
       formTitle: "Send Us a Message",
@@ -136,12 +144,22 @@ const dict = {
         msg: "How can we help optimize your operations?",
       },
       submit: "Submit Inquiry",
+      required: "(Required)",
+      selectDept: "Select a department",
       depts: [
         "Trading / Supply",
         "Services Division",
         "Technical Support",
         "Partnership",
       ],
+      validation: {
+        required: "Please fill in all required fields",
+        invalidEmail: "Please enter a valid email address",
+      },
+      messages: {
+        success: "Message sent successfully! We'll get back to you soon.",
+        error: "Failed to send message. Please try again.",
+      },
     },
     footer: {
       desc: "Pioneering Industrial Excellence. Empowering Saudi Arabia's Future through advanced technical solutions.",
@@ -162,69 +180,132 @@ const dict = {
       typing: "PetraX AI is thinking...",
     },
     marketing: {
-      nav: { about: 'Philosophy', services: 'Capabilities', approach: 'Approach', contact: 'Contact' },
+      nav: {
+        about: "Philosophy",
+        services: "Capabilities",
+        approach: "Approach",
+        contact: "Contact",
+      },
       hero: {
-        badge: 'Advanced Marketing Systems',
-        title1: 'We Build Systems',
-        title2: 'That Scale Empires.',
-        subtitle: 'Operating at the intersection of marketing strategy, creative direction, and digital growth to help businesses dominate emerging markets.',
-        ctaPrimary: 'Initialize Project',
-        ctaSecondary: 'Discover Our Approach'
+        badge: "Advanced Marketing Systems",
+        title1: "We Build Systems",
+        title2: "That Scale Empires.",
+        subtitle:
+          "Operating at the intersection of marketing strategy, creative direction, and digital growth to help businesses dominate emerging markets.",
+        ctaPrimary: "Initialize Project",
+        ctaSecondary: "Discover Our Approach",
       },
       about: {
-        title: 'Not Just Campaigns. Ecosystems.',
-        text1: 'We approach marketing as a complete system rather than isolated campaigns. By deeply understanding customer psychology and buying behavior, we design full customer journeys from first impression to revenue generation.',
-        text2: 'Combining advanced visual branding with AI-powered content pipelines, we accelerate creative production and build clear offers that convert attention into real business growth.',
+        title: "Not Just Campaigns. Ecosystems.",
+        text1:
+          "We approach marketing as a complete system rather than isolated campaigns. By deeply understanding customer psychology and buying behavior, we design full customer journeys from first impression to revenue generation.",
+        text2:
+          "Combining advanced visual branding with AI-powered content pipelines, we accelerate creative production and build clear offers that convert attention into real business growth.",
         stats: [
-          { label: 'Strategic Focus', value: '100%' },
-          { label: 'Growth Mindset', value: '∞' },
-          { label: 'Market Reach', value: 'MENA' }
-        ]
+          { label: "Strategic Focus", value: "100%" },
+          { label: "Growth Mindset", value: "∞" },
+          { label: "Market Reach", value: "MENA" },
+        ],
       },
       services: {
-        title: 'Our Capabilities',
-        subtitle: 'Select one or multiple capabilities to build your custom marketing infrastructure.',
+        title: "Our Capabilities",
+        subtitle:
+          "Select one or multiple capabilities to build your custom marketing infrastructure.",
         items: [
-          { id: 'branding', icon: Palette, title: 'Branding & Identity', desc: 'Visual storytelling and art direction systems.', color: 'from-blue-600 to-indigo-600' },
-          { id: 'ai_content', icon: Sparkles, title: 'AI Content Creation', desc: 'Cinematic visuals and automated content pipelines.', color: 'from-purple-600 to-pink-600' },
-          { id: 'growth', icon: TrendingUp, title: 'Growth Hacking', desc: 'Rapid validation and non-traditional scaling strategies.', color: 'from-emerald-600 to-teal-600' },
-          { id: 'web', icon: Code, title: 'Digital Infrastructure', desc: 'High-performance funnels and digital architectures.', color: 'from-orange-600 to-red-600' },
-          { id: 'social', icon: Smartphone, title: 'Social Ecosystems', desc: 'Algorithm optimization and audience monetization.', color: 'from-cyan-600 to-blue-600' },
-          { id: 'strategy', icon: BarChart3, title: 'Marketing Strategy', desc: 'Full customer journey design and offer creation.', color: 'from-yellow-600 to-orange-600' },
-        ]
+          {
+            id: "branding",
+            icon: Palette,
+            title: "Branding & Identity",
+            desc: "Visual storytelling and art direction systems.",
+            color: "from-blue-600 to-indigo-600",
+          },
+          {
+            id: "ai_content",
+            icon: Sparkles,
+            title: "AI Content Creation",
+            desc: "Cinematic visuals and automated content pipelines.",
+            color: "from-purple-600 to-pink-600",
+          },
+          {
+            id: "growth",
+            icon: TrendingUp,
+            title: "Growth Hacking",
+            desc: "Rapid validation and non-traditional scaling strategies.",
+            color: "from-emerald-600 to-teal-600",
+          },
+          {
+            id: "web",
+            icon: Code,
+            title: "Digital Infrastructure",
+            desc: "High-performance funnels and digital architectures.",
+            color: "from-orange-600 to-red-600",
+          },
+          {
+            id: "social",
+            icon: Smartphone,
+            title: "Social Ecosystems",
+            desc: "Algorithm optimization and audience monetization.",
+            color: "from-cyan-600 to-blue-600",
+          },
+          {
+            id: "strategy",
+            icon: BarChart3,
+            title: "Marketing Strategy",
+            desc: "Full customer journey design and offer creation.",
+            color: "from-yellow-600 to-orange-600",
+          },
+        ],
       },
       approach: {
-        title: 'The PetraX Methodology',
+        title: "The PetraX Methodology",
         steps: [
-          { icon: Target, title: 'Strategic Blueprint', desc: 'We analyze market dynamics and map out the entire customer journey to establish a clear conversion path.' },
-          { icon: Palette, title: 'Creative Art Direction', desc: 'We craft high-impact visual identities and cinematic content that elevate brand perception and demand attention.' },
-          { icon: Zap, title: 'AI & Tech Integration', desc: 'Utilizing AI tools and robust digital infrastructure to accelerate production and ensure seamless user experiences.' },
-          { icon: Layers, title: 'Ecosystem Scaling', desc: 'We deploy growth hacking strategies to multiply revenue streams and build long-term digital assets.' }
-        ]
+          {
+            icon: Target,
+            title: "Strategic Blueprint",
+            desc: "We analyze market dynamics and map out the entire customer journey to establish a clear conversion path.",
+          },
+          {
+            icon: Palette,
+            title: "Creative Art Direction",
+            desc: "We craft high-impact visual identities and cinematic content that elevate brand perception and demand attention.",
+          },
+          {
+            icon: Zap,
+            title: "AI & Tech Integration",
+            desc: "Utilizing AI tools and robust digital infrastructure to accelerate production and ensure seamless user experiences.",
+          },
+          {
+            icon: Layers,
+            title: "Ecosystem Scaling",
+            desc: "We deploy growth hacking strategies to multiply revenue streams and build long-term digital assets.",
+          },
+        ],
       },
       forms: {
-        title: 'Project Initialization',
-        subtitle: 'Tell us about your business. Contact details are required; specific project details are optional but recommended.',
-        contactDetails: '1. Contact Details (Required)',
-        name: 'Full Name',
-        email: 'Work Email',
-        company: 'Company / Brand Name',
-        phone: 'Phone Number',
-        serviceSelection: '2. Select Capabilities Needed',
-        intakeDetails: '3. Project Intake (Optional)',
-        submit: 'Submit Request',
-        cancel: 'Cancel',
-        colorPicker: 'Brand Color Preference',
-        webFeatures: 'Required Digital Features',
-        socialPlatforms: 'Target Platforms',
-        generalNotes: 'Additional Project Context'
+        title: "Project Initialization",
+        subtitle:
+          "Tell us about your business. Contact details are required; specific project details are optional but recommended.",
+        contactDetails: "1. Contact Details (Required)",
+        name: "Full Name",
+        email: "Work Email",
+        company: "Company / Brand Name",
+        phone: "Phone Number",
+        serviceSelection: "2. Select Capabilities Needed",
+        intakeDetails: "3. Project Intake (Optional)",
+        submit: "Submit Request",
+        cancel: "Cancel",
+        colorPicker: "Brand Color Preference",
+        webFeatures: "Required Digital Features",
+        socialPlatforms: "Target Platforms",
+        generalNotes: "Additional Project Context",
       },
       chat: {
-        title: 'PetraX AI Assistant',
-        placeholder: 'Ask about our marketing systems...',
-        intro: 'Hello. I am the PetraX AI. How can I assist you with your marketing strategy today?'
-      }
-    }
+        title: "PetraX AI Assistant",
+        placeholder: "Ask about our marketing systems...",
+        intro:
+          "Hello. I am the PetraX AI. How can I assist you with your marketing strategy today?",
+      },
+    },
   },
   ar: {
     dir: "rtl",
@@ -339,7 +420,7 @@ const dict = {
       title: "تواصل مع PetraX",
       subtitle: "بوابتك للتميز الصناعي. نحن مستعدون لتقديم دعم الخبراء.",
       hq: "المقر الرئيسي",
-      hqDesc: "مركز الملك عبدالله المالي، الرياض، السعودية",
+      hqDesc: "الخبر، المنطقة الشرقية، المملكة العربية السعودية",
       phone: "الهاتف",
       email: "البريد الإلكتروني",
       formTitle: "أرسل لنا رسالة",
@@ -357,7 +438,17 @@ const dict = {
         msg: "كيف يمكننا المساعدة في تحسين عملياتك؟",
       },
       submit: "إرسال الطلب",
+      required: "(مطلوب)",
+      selectDept: "اختر القسم",
       depts: ["التجارة / التوريد", "قسم الخدمات", "الدعم الفني", "الشراكات"],
+      validation: {
+        required: "يرجى ملء جميع الحقول المطلوبة",
+        invalidEmail: "يرجى إدخال عنوان بريد إلكتروني صحيح",
+      },
+      messages: {
+        success: "تم إرسال الرسالة بنجاح! سنعود إليك قريباً.",
+        error: "فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+      },
     },
     footer: {
       desc: "رواد التميز الصناعي. تمكين مستقبل المملكة العربية السعودية من خلال الحلول التقنية المتقدمة.",
@@ -378,69 +469,132 @@ const dict = {
       typing: "يفكر الذكاء الاصطناعي...",
     },
     marketing: {
-      nav: { about: 'فلسفتنا', services: 'قدراتنا', approach: 'منهجيتنا', contact: 'تواصل معنا' },
+      nav: {
+        about: "فلسفتنا",
+        services: "قدراتنا",
+        approach: "منهجيتنا",
+        contact: "تواصل معنا",
+      },
       hero: {
-        badge: 'أنظمة تسويق متقدمة',
-        title1: 'نبني أنظمة',
-        title2: 'توسع إمبراطوريات.',
-        subtitle: 'نعمل عند تقاطع استراتيجية التسويق، التوجيه الإبداعي، والنمو الرقمي لمساعدة الشركات على السيطرة في الأسواق الناشئة.',
-        ctaPrimary: 'تهيئة المشروع',
-        ctaSecondary: 'اكتشف منهجيتنا'
+        badge: "أنظمة تسويق متقدمة",
+        title1: "نبني أنظمة",
+        title2: "توسع إمبراطوريات.",
+        subtitle:
+          "نعمل عند تقاطع استراتيجية التسويق، التوجيه الإبداعي، والنمو الرقمي لمساعدة الشركات على السيطرة في الأسواق الناشئة.",
+        ctaPrimary: "تهيئة المشروع",
+        ctaSecondary: "اكتشف منهجيتنا",
       },
       about: {
-        title: 'ليست مجرد حملات. بل أنظمة بيئية.',
-        text1: 'نحن نتعامل مع التسويق كنظام متكامل وليس كحملات معزولة. من خلال الفهم العميق لسيكولوجية العميل وسلوك الشراء، نصمم رحلات عملاء كاملة من الانطباع الأول إلى توليد الإيرادات.',
-        text2: 'من خلال الجمع بين العلامات التجارية المرئية المتقدمة ومسارات المحتوى المدعومة بالذكاء الاصطناعي، نسرّع الإنتاج الإبداعي ونبني عروضاً واضحة تحول الانتباه إلى نمو حقيقي للأعمال.',
+        title: "ليست مجرد حملات. بل أنظمة بيئية.",
+        text1:
+          "نحن نتعامل مع التسويق كنظام متكامل وليس كحملات معزولة. من خلال الفهم العميق لسيكولوجية العميل وسلوك الشراء، نصمم رحلات عملاء كاملة من الانطباع الأول إلى توليد الإيرادات.",
+        text2:
+          "من خلال الجمع بين العلامات التجارية المرئية المتقدمة ومسارات المحتوى المدعومة بالذكاء الاصطناعي، نسرّع الإنتاج الإبداعي ونبني عروضاً واضحة تحول الانتباه إلى نمو حقيقي للأعمال.",
         stats: [
-          { label: 'تركيز استراتيجي', value: '100%' },
-          { label: 'عقلية النمو', value: '∞' },
-          { label: 'الوصول للسوق', value: 'MENA' }
-        ]
+          { label: "تركيز استراتيجي", value: "100%" },
+          { label: "عقلية النمو", value: "∞" },
+          { label: "الوصول للسوق", value: "MENA" },
+        ],
       },
       services: {
-        title: 'قدراتنا',
-        subtitle: 'حدد قدرة واحدة أو قدرات متعددة لبناء البنية التحتية التسويقية المخصصة لك.',
+        title: "قدراتنا",
+        subtitle:
+          "حدد قدرة واحدة أو قدرات متعددة لبناء البنية التحتية التسويقية المخصصة لك.",
         items: [
-          { id: 'branding', icon: Palette, title: 'العلامة التجارية والهوية', desc: 'السرد البصري وأنظمة التوجيه الفني.', color: 'from-blue-600 to-indigo-600' },
-          { id: 'ai_content', icon: Sparkles, title: 'محتوى الذكاء الاصطناعي', desc: 'مرئيات سينمائية ومسارات محتوى مؤتمتة.', color: 'from-purple-600 to-pink-600' },
-          { id: 'growth', icon: TrendingUp, title: 'اختراق النمو', desc: 'تحقق سريع واستراتيجيات توسع غير تقليدية.', color: 'from-emerald-600 to-teal-600' },
-          { id: 'web', icon: Code, title: 'البنية التحتية الرقمية', desc: 'مسارات تحويل عالية الأداء وهياكل رقمية.', color: 'from-orange-600 to-red-600' },
-          { id: 'social', icon: Smartphone, title: 'الأنظمة البيئية الاجتماعية', desc: 'تحسين الخوارزميات وتحقيق الدخل من الجمهور.', color: 'from-cyan-600 to-blue-600' },
-          { id: 'strategy', icon: BarChart3, title: 'استراتيجية التسويق', desc: 'تصميم رحلة العميل الكاملة وبناء العروض.', color: 'from-yellow-600 to-orange-600' },
-        ]
+          {
+            id: "branding",
+            icon: Palette,
+            title: "العلامة التجارية والهوية",
+            desc: "السرد البصري وأنظمة التوجيه الفني.",
+            color: "from-blue-600 to-indigo-600",
+          },
+          {
+            id: "ai_content",
+            icon: Sparkles,
+            title: "محتوى الذكاء الاصطناعي",
+            desc: "مرئيات سينمائية ومسارات محتوى مؤتمتة.",
+            color: "from-purple-600 to-pink-600",
+          },
+          {
+            id: "growth",
+            icon: TrendingUp,
+            title: "اختراق النمو",
+            desc: "تحقق سريع واستراتيجيات توسع غير تقليدية.",
+            color: "from-emerald-600 to-teal-600",
+          },
+          {
+            id: "web",
+            icon: Code,
+            title: "البنية التحتية الرقمية",
+            desc: "مسارات تحويل عالية الأداء وهياكل رقمية.",
+            color: "from-orange-600 to-red-600",
+          },
+          {
+            id: "social",
+            icon: Smartphone,
+            title: "الأنظمة البيئية الاجتماعية",
+            desc: "تحسين الخوارزميات وتحقيق الدخل من الجمهور.",
+            color: "from-cyan-600 to-blue-600",
+          },
+          {
+            id: "strategy",
+            icon: BarChart3,
+            title: "استراتيجية التسويق",
+            desc: "تصميم رحلة العميل الكاملة وبناء العروض.",
+            color: "from-yellow-600 to-orange-600",
+          },
+        ],
       },
       approach: {
-        title: 'منهجية PetraX',
+        title: "منهجية PetraX",
         steps: [
-          { icon: Target, title: 'المخطط الاستراتيجي', desc: 'نحلل ديناميكيات السوق ونرسم رحلة العميل بأكملها لإنشاء مسار تحويل واضح.' },
-          { icon: Palette, title: 'التوجيه الفني الإبداعي', desc: 'نصنع هويات بصرية عالية التأثير ومحتوى سينمائي يرفع من تصور العلامة التجارية ويجذب الانتباه.' },
-          { icon: Zap, title: 'دمج الذكاء الاصطناعي والتقنية', desc: 'استخدام أدوات الذكاء الاصطناعي والبنية التحتية الرقمية القوية لتسريع الإنتاج وضمان تجارب مستخدم سلسة.' },
-          { icon: Layers, title: 'توسيع النظام البيئي', desc: 'ننشر استراتيجيات اختراق النمو لمضاعفة مصادر الإيرادات وبناء أصول رقمية طويلة الأجل.' }
-        ]
+          {
+            icon: Target,
+            title: "المخطط الاستراتيجي",
+            desc: "نحلل ديناميكيات السوق ونرسم رحلة العميل بأكملها لإنشاء مسار تحويل واضح.",
+          },
+          {
+            icon: Palette,
+            title: "التوجيه الفني الإبداعي",
+            desc: "نصنع هويات بصرية عالية التأثير ومحتوى سينمائي يرفع من تصور العلامة التجارية ويجذب الانتباه.",
+          },
+          {
+            icon: Zap,
+            title: "دمج الذكاء الاصطناعي والتقنية",
+            desc: "استخدام أدوات الذكاء الاصطناعي والبنية التحتية الرقمية القوية لتسريع الإنتاج وضمان تجارب مستخدم سلسة.",
+          },
+          {
+            icon: Layers,
+            title: "توسيع النظام البيئي",
+            desc: "ننشر استراتيجيات اختراق النمو لمضاعفة مصادر الإيرادات وبناء أصول رقمية طويلة الأجل.",
+          },
+        ],
       },
       forms: {
-        title: 'تهيئة المشروع',
-        subtitle: 'أخبرنا عن عملك. تفاصيل الاتصال مطلوبة؛ تفاصيل المشروع المحددة اختيارية ولكن يوصى بها.',
-        contactDetails: '1. تفاصيل الاتصال (مطلوب)',
-        name: 'الاسم الكامل',
-        email: 'البريد الإلكتروني للعمل',
-        company: 'اسم الشركة / العلامة التجارية',
-        phone: 'رقم الهاتف',
-        serviceSelection: '2. حدد القدرات المطلوبة',
-        intakeDetails: '3. تفاصيل المشروع (اختياري)',
-        submit: 'إرسال الطلب',
-        cancel: 'إلغاء',
-        colorPicker: 'تفضيلات ألوان العلامة التجارية',
-        webFeatures: 'الميزات الرقمية المطلوبة',
-        socialPlatforms: 'المنصات المستهدفة',
-        generalNotes: 'سياق إضافي للمشروع'
+        title: "تهيئة المشروع",
+        subtitle:
+          "أخبرنا عن عملك. تفاصيل الاتصال مطلوبة؛ تفاصيل المشروع المحددة اختيارية ولكن يوصى بها.",
+        contactDetails: "1. تفاصيل الاتصال (مطلوب)",
+        name: "الاسم الكامل",
+        email: "البريد الإلكتروني للعمل",
+        company: "اسم الشركة / العلامة التجارية",
+        phone: "رقم الهاتف",
+        serviceSelection: "2. حدد القدرات المطلوبة",
+        intakeDetails: "3. تفاصيل المشروع (اختياري)",
+        submit: "إرسال الطلب",
+        cancel: "إلغاء",
+        colorPicker: "تفضيلات ألوان العلامة التجارية",
+        webFeatures: "الميزات الرقمية المطلوبة",
+        socialPlatforms: "المنصات المستهدفة",
+        generalNotes: "سياق إضافي للمشروع",
       },
       chat: {
-        title: 'مساعد PetraX الذكي',
-        placeholder: 'اسأل عن أنظمة التسويق لدينا...',
-        intro: 'مرحباً. أنا مساعد PetraX. كيف يمكنني مساعدتك في استراتيجية التسويق الخاصة بك اليوم؟'
-      }
-    }
+        title: "مساعد PetraX الذكي",
+        placeholder: "اسأل عن أنظمة التسويق لدينا...",
+        intro:
+          "مرحباً. أنا مساعد PetraX. كيف يمكنني مساعدتك في استراتيجية التسويق الخاصة بك اليوم؟",
+      },
+    },
   },
 };
 
