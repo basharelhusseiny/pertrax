@@ -7,6 +7,7 @@ import ServicesSection from "./ServicesSection";
 import ProjectModal from "./ProjectModal";
 import ChatWidget from "./ChatWidget";
 import TestimonialsSection from "../../components/TestimonialsSection";
+import LogoSwiper from "../../components/LogoSwiper.jsx";
 
 export default function MarketingPage({ t, lang }) {
   // Use local state only for modal and form data
@@ -59,6 +60,9 @@ export default function MarketingPage({ t, lang }) {
 
       {/* Hero Section */}
       <HeroSection t={t} lang={lang} openProjectModal={openProjectModal} />
+
+      {/* Swiper Section */}
+      <LogoSwiper />
 
       {/* About Section */}
       <AboutSection t={t} lang={lang} />

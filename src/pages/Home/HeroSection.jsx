@@ -1,8 +1,10 @@
-import { ArrowRight, Activity } from "lucide-react";
+import { ArrowRight, Activity, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router";
 import Reveal from "../../components/ui/Reveal";
 import Button from "../../components/ui/Button";
 
 export default function HeroSection({ t, lang, scrollTo }) {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
       {/* Background Base with Premium Gradient */}
@@ -91,7 +93,7 @@ export default function HeroSection({ t, lang, scrollTo }) {
               <Button
                 primary
                 onClick={() => scrollTo("solutions")}
-                className="text-lg px-8 py-4 shadow-lg shadow-blue-600/20 bg-linear-to-r from-blue-700 to-blue-600 border border-blue-500/50"
+                className="text-lg px-8 py-4 shadow-lg shadow-blue-600/20 bg-linear-to-r from-blue-700 to-blue-600 border border-blue-500/50 hover:shadow-xl hover:shadow-blue-600/30 hover:scale-[1.02] transition-all duration-300"
               >
                 {t.hero.cta1}{" "}
                 <ArrowRight
@@ -99,10 +101,13 @@ export default function HeroSection({ t, lang, scrollTo }) {
                 />
               </Button>
               <Button
-                onClick={() => scrollTo("products")}
-                className="text-lg px-8 py-4 border-blue-200 text-slate-700 hover:bg-slate-50 hover:border-blue-300 bg-white shadow-sm transition-all"
+                onClick={() => navigate("/marketing")}
+                className="text-lg px-8 py-4 border-2 border-blue-600 text-blue-700 hover:bg-blue-50 hover:border-blue-700 bg-white shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] font-semibold flex items-center gap-5"
               >
-                {t.hero.cta2}
+                {lang === "en" ? "Marketing" : "للتسويق"}
+                <Sparkles
+                  className={`w-6 h-6 text-blue-600 animate-pulse ${lang === "en" ? "ml-2" : "mr-2"}`}
+                />
               </Button>
             </div>
           </Reveal>
