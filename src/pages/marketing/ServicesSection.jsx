@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
 export default function ServicesSection({
@@ -60,12 +59,12 @@ export default function ServicesSection({
                 className={`group relative p-8 md:p-10 rounded-[2.5rem] cursor-pointer overflow-hidden transition-all duration-700 flex flex-col justify-between ${
                   isSelected
                     ? "shadow-[0_20px_40px_-15px_rgba(37,99,235,0.4)] hover:shadow-[0_25px_50px_-15px_rgba(37,99,235,0.5)] -translate-y-2"
-                    : "bg-white border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.1)] hover:border-blue-200 hover:-translate-y-2"
+                    : "bg-slate-800 border border-slate-700/60 shadow-[0_8px_30px_rgb(0,0,0,0.3)] hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.2)] hover:border-blue-500 hover:-translate-y-2"
                 }`}
                 style={{
                   background: isSelected
                     ? "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)"
-                    : "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+                    : "linear-gradient(180deg, #1f2937 0%, #111827 100%)",
                 }}
               >
                 {/* Decorative Highlights */}
@@ -85,7 +84,7 @@ export default function ServicesSection({
                     className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${
                       isSelected
                         ? "bg-white/20 border border-white/20 text-white shadow-inner"
-                        : "bg-white border border-slate-100 text-blue-600 shadow-xl shadow-blue-900/5 group-hover:shadow-blue-600/20 group-hover:border-blue-200"
+                        : "bg-slate-700 border border-slate-600 text-blue-400 shadow-xl shadow-slate-900/20 group-hover:shadow-blue-500/20 group-hover:border-blue-400"
                     }`}
                   >
                     <Icon className="w-8 h-8" strokeWidth={1.5} />
@@ -93,12 +92,12 @@ export default function ServicesSection({
 
                   {/* Title & Desc */}
                   <h3
-                    className={`text-2xl font-black mb-4 tracking-tight transition-colors duration-500 ${isSelected ? "text-white" : "text-slate-900 group-hover:text-blue-600"}`}
+                    className={`text-2xl font-black mb-4 tracking-tight transition-colors duration-500 ${isSelected ? "text-white" : "text-white group-hover:text-blue-300"}`}
                   >
                     {service.title}
                   </h3>
                   <p
-                    className={`text-base leading-relaxed font-light transition-colors duration-500 ${isSelected ? "text-blue-100/90" : "text-slate-500 group-hover:text-slate-600"}`}
+                    className={`text-lg leading-relaxed font-light transition-colors duration-500 ${isSelected ? "text-blue-100/90" : "text-slate-300 group-hover:text-slate-200"}`}
                   >
                     {service.desc}
                   </p>
@@ -110,13 +109,13 @@ export default function ServicesSection({
                     className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:translate-x-2 ${
                       isSelected
                         ? "bg-white/20 text-white"
-                        : "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-md"
+                        : "bg-slate-700 text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-md"
                     }`}
                   >
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                   <span
-                    className={`text-xs font-black uppercase tracking-widest transition-all duration-500 group-hover:translate-x-2 ${
+                    className={`font-black uppercase tracking-widest transition-all duration-500 group-hover:translate-x-2 ${
                       isSelected
                         ? "text-white"
                         : "text-slate-400 group-hover:text-blue-600"

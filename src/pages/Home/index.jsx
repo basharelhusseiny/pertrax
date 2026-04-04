@@ -17,7 +17,7 @@ export default function Home({ t, lang, scrollTo }) {
       <ProductsSection t={t} lang={lang} />
       <IndustriesSection t={t} lang={lang} />
       <SolutionsSection t={t} lang={lang} />
-      <TestimonialsSection lang={lang} />
+      {/* <TestimonialsSection lang={lang} /> */}
       <ContactSection t={t} lang={lang} />
     </>
   );

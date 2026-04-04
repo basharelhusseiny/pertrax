@@ -152,18 +152,19 @@ export default function ContactSection({ t }) {
                     icon: Phone,
                     label: t.contact.phone,
                     val: "+966 53 734 7710",
+                    val2: "+966 53 361 3446",
                   },
                   {
                     icon: Mail,
                     label: t.contact.email,
                     val: "info@petrax-sa.com",
                   },
-                ].map(({ icon, label, val }, i) => {
+                ].map(({ icon, label, val, val2 }, i) => {
                   const ContactIcon = icon;
                   return (
                     <div
                       key={i}
-                      className="flex items-start gap-5 group cursor-pointer"
+                      className="flex items-center gap-5 group cursor-pointer"
                     >
                       <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white group-hover:text-blue-700 transition-all duration-400 shrink-0">
                         <ContactIcon className="w-5 h-5" />
@@ -172,8 +173,9 @@ export default function ContactSection({ t }) {
                         <h4 className="font-bold text-white text-lg mb-1">
                           {label}
                         </h4>
-                        <p className="text-blue-50/60 text-sm font-medium">
-                          {val}
+                        <p className="text-blue-50/60 text-sm font-medium flex flex-col">
+                          <span>{val}</span>
+                          {val2 && <span>{val2}</span>}
                         </p>
                       </div>
                     </div>

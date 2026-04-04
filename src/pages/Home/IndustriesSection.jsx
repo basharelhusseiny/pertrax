@@ -4,7 +4,7 @@ import { Droplet, Factory, Settings, Zap, HardHat, Waves } from "lucide-react";
 const industries = [
   {
     Icon: Droplet,
-    image: "/8azzz.webp",
+    image: "/oil-new.jpeg",
     accent: "#0ea5e9",
     label: "Water Treatment",
   },

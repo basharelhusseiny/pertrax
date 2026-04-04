@@ -75,7 +75,10 @@ export default function Footer({ t, lang }) {
                 dir="ltr"
               >
                 <Phone className="w-5 h-5 text-blue-400/70" />
-                <span>+966 53 734 7710</span>
+                <div className="flex flex-col gap-1">
+                  <span>+966 53 734 7710</span>
+                  <span>+966 53 361 3446</span>
+                </div>
               </div>
               <div className="flex items-start gap-4 text-blue-200/60 text-sm font-medium leading-relaxed max-w-[250px]">
                 <MapPin className="w-5 h-5 text-blue-400/70 shrink-0 mt-0.5" />

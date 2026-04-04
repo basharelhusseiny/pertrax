@@ -61,14 +61,9 @@ export default function MarketingPage({ t, lang }) {
       {/* Hero Section */}
       <HeroSection t={t} lang={lang} openProjectModal={openProjectModal} />
 
-      {/* Swiper Section */}
-      <LogoSwiper />
 
       {/* About Section */}
       <AboutSection t={t} lang={lang} />
-
-      {/* Approach Section */}
-      <ApproachSection t={t} lang={lang} />
 
       {/* Services Section */}
       <ServicesSection
@@ -78,7 +73,13 @@ export default function MarketingPage({ t, lang }) {
         openProjectModal={openProjectModal}
       />
 
-      <TestimonialsSection lang={lang} />
+      {/* Approach Section */}
+      <ApproachSection t={t} lang={lang} />
+
+      {/* Swiper Section */}
+      <LogoSwiper />
+
+      {/* <TestimonialsSection lang={lang} /> */}
       {/* Project Modal */}
       <ProjectModal
         t={t}
