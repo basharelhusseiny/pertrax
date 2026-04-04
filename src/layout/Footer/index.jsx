@@ -1,6 +1,18 @@
 import React from "react";
-import { ExternalLink, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ExternalLink,
+  Mail,
+  MapPin,
+  Phone,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Twitter,
+  Music,
+  Ghost,
+} from "lucide-react";
 import Logo from "../../components/ui/Logo";
+import { socialMediaLinks } from "../../data/socialMedia";
 
 export default function Footer({ t, lang }) {
   const isAr = lang === "ar";
@@ -25,6 +37,39 @@ export default function Footer({ t, lang }) {
             <p className="text-blue-200/50 text-base font-light leading-relaxed max-w-sm">
               {t.footer.desc}
             </p>
+
+            {/* Social Media Links */}
+            <div className="pt-6 border-t border-blue-900/30">
+              <h5 className="text-blue-400/60 font-black text-xs uppercase tracking-[0.2em] mb-4">
+                {isAr ? "تابعنا" : "Follow Us"}
+              </h5>
+              <div className="flex items-center gap-3">
+                {socialMediaLinks.map((social) => (
+                  <a
+                    key={social.id}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="w-10 h-10 bg-[#1A1AFA]/15 border border-[#1A1AFA]/30 rounded-lg flex items-center justify-center hover:bg-[#1A1AFA] hover:border-[#1A1AFA] hover:text-white transition-all duration-400"
+                    title={social.name}
+                  >
+                    {social.id === "instagram" && (
+                      <Instagram className="w-4 h-4" />
+                    )}
+                    {social.id === "facebook" && (
+                      <Facebook className="w-4 h-4" />
+                    )}
+                    {social.id === "linkedin" && (
+                      <Linkedin className="w-4 h-4" />
+                    )}
+                    {social.id === "twitter" && <Twitter className="w-4 h-4" />}
+                    {social.id === "tiktok" && <Music className="w-4 h-4" />}
+                    {social.id === "snapchat" && <Ghost className="w-4 h-4" />}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -76,8 +121,24 @@ export default function Footer({ t, lang }) {
               >
                 <Phone className="w-5 h-5 text-blue-400/70" />
                 <div className="flex flex-col gap-1">
-                  <span>+966 53 734 7710</span>
-                  <span>+966 53 361 3446</span>
+                  <span>
+                    Trading:{" "}
+                    <a
+                      href="tel:+966537347710"
+                      className="hover:text-white transition-colors cursor-pointer"
+                    >
+                      +966 53 734 7710
+                    </a>
+                  </span>
+                  <span>
+                    Marketing:{" "}
+                    <a
+                      href="tel:+966533613446"
+                      className="hover:text-white transition-colors cursor-pointer"
+                    >
+                      +966 53 361 3446
+                    </a>
+                  </span>
                 </div>
               </div>
               <div className="flex items-start gap-4 text-blue-200/60 text-sm font-medium leading-relaxed max-w-[250px]">

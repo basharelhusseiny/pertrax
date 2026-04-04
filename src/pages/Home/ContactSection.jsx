@@ -1,8 +1,20 @@
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Send,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Music,
+  Twitter,
+  Ghost,
+} from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { socialMediaLinks } from "../../data/socialMedia";
 
-export default function ContactSection({ t }) {
+export default function ContactSection({ lang, t }) {
   const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
@@ -151,15 +163,17 @@ export default function ContactSection({ t }) {
                   {
                     icon: Phone,
                     label: t.contact.phone,
-                    val: "+966 53 734 7710",
-                    val2: "+966 53 361 3446",
+                    val: "Trading",
+                    val2: "Marketing",
+                    val_link: "+966537347710",
+                    val2_link: "+966533613446",
                   },
                   {
                     icon: Mail,
                     label: t.contact.email,
                     val: "info@petrax-sa.com",
                   },
-                ].map(({ icon, label, val, val2 }, i) => {
+                ].map(({ icon, label, val, val2, val_link, val2_link }, i) => {
                   const ContactIcon = icon;
                   return (
                     <div
@@ -174,20 +188,85 @@ export default function ContactSection({ t }) {
                           {label}
                         </h4>
                         <p className="text-blue-50/60 text-sm font-medium flex flex-col">
-                          <span>{val}</span>
-                          {val2 && <span>{val2}</span>}
+                          {val_link ? (
+                            <span>
+                              {val}:{" "}
+                              <a
+                                href={`tel:${val_link}`}
+                                className="hover:text-white transition-colors"
+                              >
+                                +966 53 734 7710
+                              </a>
+                            </span>
+                          ) : (
+                            <span>{val}</span>
+                          )}
+                          {val2 && (
+                            <span>
+                              {val2_link ? (
+                                <>
+                                  {val2}:{" "}
+                                  <a
+                                    href={`tel:${val2_link}`}
+                                    className="hover:text-white transition-colors"
+                                  >
+                                    +966 53 361 3446
+                                  </a>
+                                </>
+                              ) : (
+                                val2
+                              )}
+                            </span>
+                          )}
                         </p>
                       </div>
                     </div>
                   );
                 })}
               </div>
+
+              {/* Social Media Links */}
+              <div className="pt-10 border-t border-white/15">
+                <h4 className="font-bold text-white text-sm mb-5 uppercase tracking-widest">
+                  {lang === "ar" ? "تابعنا" : "Follow Us"}
+                </h4>
+                <div className="flex items-center gap-4 flex-wrap">
+                  {socialMediaLinks.map((social) => (
+                    <a
+                      key={social.id}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.name}
+                      className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white hover:text-blue-700 transition-all duration-400 group"
+                      title={social.name}
+                    >
+                      {social.id === "instagram" && (
+                        <Instagram className="w-5 h-5" />
+                      )}
+                      {social.id === "facebook" && (
+                        <Facebook className="w-5 h-5" />
+                      )}
+                      {social.id === "linkedin" && (
+                        <Linkedin className="w-5 h-5" />
+                      )}
+                      {social.id === "twitter" && (
+                        <Twitter className="w-5 h-5" />
+                      )}
+                      {social.id === "tiktok" && <Music className="w-5 h-5" />}
+                      {social.id === "snapchat" && (
+                        <Ghost className="w-5 h-5" />
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Contact Form (Right) */}
-          <div className="lg:w-3/5 p-10 lg:p-14 bg-white/50 backdrop-blur-sm">
-            <div className="max-w-xl">
+          <div className="lg:w-3/5 p-10 lg:p-14 bg-white/50 backdrop-blur-sm flex items-center justify-center min-h-[600px]">
+            <div className="max-w-xl w-full">
               <h3 className="text-3xl font-black text-slate-900 mb-2 tracking-tight">
                 {t.contact.formTitle}
               </h3>
