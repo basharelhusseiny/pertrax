@@ -16,8 +16,8 @@ export default function MainHeader({
 
   const navLinks = [
     { name: t.nav.home, id: "home", path: "/" },
-    { name: t.nav.marketing, id: "marketing", path: "/marketing" },
     { name: t.nav.about, id: "about" },
+    { name: t.nav.marketing, id: "marketing", path: "/marketing" },
     { name: t.nav.products, id: "products" },
     { name: t.nav.industries, id: "industries" },
     { name: t.nav.solutions, id: "solutions" },
