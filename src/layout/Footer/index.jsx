@@ -157,13 +157,13 @@ export default function Footer({ t, lang }) {
             </h5>
             <div className="flex flex-col gap-4">
               <a
-                href="#"
+                href="/p-policy"
                 className="hover:text-white transition-colors text-blue-200/60 text-sm font-medium w-fit"
               >
                 {t.footer.privacy}
               </a>
               <a
-                href="#"
+                href="/t-service"
                 className="hover:text-white transition-colors text-blue-200/60 text-sm font-medium w-fit"
               >
                 {t.footer.terms}

@@ -164,10 +164,58 @@ const dict = {
     footer: {
       desc: "Pioneering Industrial Excellence. Empowering Saudi Arabia's Future through advanced technical solutions.",
       visitDiv: "Visit Services Division",
-      privacy: "Privacy",
-      terms: "Terms",
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
       rights: "© 2026 PetraX Trading Department. All rights reserved.",
       vision: "Aligned with Saudi Vision 2030",
+    },
+    legal: {
+      privacy: {
+        title: "Privacy Policy",
+        lastUpdated: "Last Updated: April 15, 2026",
+        intro: "At PetraX, we value your privacy and are committed to protecting your personal data.",
+        sections: [
+          {
+            title: "1. Data Collection",
+            content: "We collect information you provide directly to us through contact forms, product inquiries, and service requests. This may include your name, email address, company name, and phone number."
+          },
+          {
+            title: "2. How We Use Your Data",
+            content: "We use the collected data to provide our services, respond to inquiries, improve our offerings, and communicate important updates regarding PetraX services."
+          },
+          {
+            title: "3. Data Protection",
+            content: "We implement robust security measures to protect your information from unauthorized access, alteration, or disclosure."
+          },
+          {
+            title: "4. Cookies",
+            content: "Our website uses cookies to enhance user experience and analyze site traffic. You can manage your cookie preferences through your browser settings."
+          }
+        ]
+      },
+      terms: {
+        title: "Terms of Service",
+        lastUpdated: "Last Updated: April 15, 2026",
+        intro: "By accessing or using PetraX services, you agree to be bound by these terms.",
+        sections: [
+          {
+            title: "1. Use of Services",
+            content: "PetraX provides industrial solutions and marketing systems. You agree to use these services only for lawful purposes and in accordance with our guidelines."
+          },
+          {
+            title: "2. Intellectual Property",
+            content: "All content, logos, and materials on this site are the property of PetraX and are protected by applicable intellectual property laws."
+          },
+          {
+            title: "3. Limitation of Liability",
+            content: "PetraX shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services."
+          },
+          {
+            title: "4. Governing Law",
+            content: "These terms are governed by the laws of the Kingdom of Saudi Arabia."
+          }
+        ]
+      }
     },
     chat: {
       title: "PetraX AI Assistant",
@@ -453,10 +501,58 @@ const dict = {
     footer: {
       desc: "رواد التميز الصناعي. تمكين مستقبل المملكة العربية السعودية من خلال الحلول التقنية المتقدمة.",
       visitDiv: "زيارة قسم الخدمات",
-      privacy: "الخصوصية",
-      terms: "الشروط",
+      privacy: "سياسة الخصوصية",
+      terms: "شروط الخدمة",
       rights: "© 2026 قسم التجارة PetraX. جميع الحقوق محفوظة.",
       vision: "متوافقون مع رؤية السعودية 2030",
+    },
+    legal: {
+      privacy: {
+        title: "سياسة الخصوصية",
+        lastUpdated: "آخر تحديث: 15 أبريل 2026",
+        intro: "في PetraX، نحن نقدر خصوصيتك ونلتزم بحماية بياناتك الشخصية.",
+        sections: [
+          {
+            title: "1. جمع البيانات",
+            content: "نقوم بجمع المعلومات التي تقدمها لنا مباشرة من خلال نماذج الاتصال، واستفسارات المنتجات، وطلبات الخدمة. قد يشمل ذلك اسمك وعنوان بريدك الإلكتروني واسم الشركة ورقم الهاتف."
+          },
+          {
+            title: "2. كيف نستخدم بياناتك",
+            content: "نستخدم البيانات المجمعة لتقديم خدماتنا، والرد على الاستفسارات، وتحسين عروضنا، وإبلاغك بالتحديثات المهمة المتعلقة بخدمات PetraX."
+          },
+          {
+            title: "3. حماية البيانات",
+            content: "نحن نطبق تدابير أمنية قوية لحماية معلوماتك من الوصول غير المصرح به أو التغيير أو الإفصاح."
+          },
+          {
+            title: "4. ملفات تعريف الارتباط (Cookies)",
+            content: "يستخدم موقعنا ملفات تعريف الارتباط لتحسين تجربة المستخدم وتحليل حركة مرور الموقع. يمكنك إدارة تفضيلات ملفات تعريف الارتباط من خلال إعدادات متصفحك."
+          }
+        ]
+      },
+      terms: {
+        title: "شروط الخدمة",
+        lastUpdated: "آخر تحديث: 15 أبريل 2026",
+        intro: "من خلال الوصول إلى خدمات PetraX أو استخدامها، فإنك توافق على الالتزام بهذه الشروط.",
+        sections: [
+          {
+            title: "1. استخدام الخدمات",
+            content: "تقدم PetraX حلولاً صناعية وأنظمة تسويقية. أنت توافق على استخدام هذه الخدمات للأغراض المشروعة فقط ووفقاً لإرشاداتنا."
+          },
+          {
+            title: "2. الملكية الفكرية",
+            content: "جميع المحتويات والشعارات والمواد الموجودة على هذا الموقع هي ملك لـ PetraX ومحمية بموجب قوانين الملكية الفكرية المعمول بها."
+          },
+          {
+            title: "3. حدود المسؤولية",
+            content: "لن تكون PetraX مسؤولة عن أي أضرار غير مباشرة أو عرضية أو تبعية ناتجة عن استخدام خدماتنا."
+          },
+          {
+            title: "4. القانون الواجب التطبيق",
+            content: "تخضع هذه الشروط لقوانين المملكة العربية السعودية."
+          }
+        ]
+      }
     },
     chat: {
       title: "المساعد الذكي لـ PetraX",

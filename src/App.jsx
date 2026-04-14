@@ -13,6 +13,8 @@ import Layout from "./layout";
 import Home from "./pages/Home";
 import MarketingPage from "./pages/marketing";
 import Chatbot from "./components/Chatbot";
+import PrivacyPolicy from "./pages/support/PPolicy";
+import TermsOfService from "./pages/support/TService";
 
 function AppContent() {
   const [lang, setLang] = useState("en");
@@ -79,8 +81,17 @@ function AppContent() {
             path="/marketing"
             element={<MarketingPage t={t} lang={lang} scrollTo={scrollTo} />}
           />
+          <Route
+            path="/p-policy"
+            element={<PrivacyPolicy t={t} lang={lang} />}
+          />
+          <Route
+            path="/t-service"
+            element={<TermsOfService t={t} lang={lang} />}
+          />
         </Routes>
       </Layout>
+
 
       {/* {location.pathname === "/" && <Chatbot t={t} lang={lang} />} */}
     </div>
